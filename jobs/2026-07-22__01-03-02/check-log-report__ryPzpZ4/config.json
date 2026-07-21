@@ -1,0 +1,12 @@
+{
+    "task": {
+        "path": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\harbor-check-r3f_fyim\\check-log-report"
+    },
+    "trial_name": "check-log-report__ryPzpZ4",
+    "trials_dir": "jobs\\2026-07-22__01-03-02",
+    "agent": {
+        "name": "claude-code",
+        "model_name": "claude-sonnet-4-6"
+    },
+    "job_id": "3c7e88b5-1088-474c-8829-bfe9772b8381"
+}

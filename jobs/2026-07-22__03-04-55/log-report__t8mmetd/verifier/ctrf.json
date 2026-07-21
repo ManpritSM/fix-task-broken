@@ -1,0 +1,77 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 5,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1784669715.0818014,
+            "stop": 1784669715.132155
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_report_exists",
+                "status": "passed",
+                "duration": 0.0007153990000006161,
+                "start": 1784669715.1073904,
+                "stop": 1784669715.109073,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_report_nonempty",
+                "status": "passed",
+                "duration": 0.0005373729999860188,
+                "start": 1784669715.1094377,
+                "stop": 1784669715.1108513,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_valid_json_report",
+                "status": "passed",
+                "duration": 0.0007005960000014966,
+                "start": 1784669715.1110935,
+                "stop": 1784669715.1129022,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_total_requests",
+                "status": "passed",
+                "duration": 0.0006378869999821291,
+                "start": 1784669715.1132486,
+                "stop": 1784669715.115029,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_unique_clients",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0007816079999827252,
+                "start": 1784669715.1153605,
+                "stop": 1784669715.1296263,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_unique_clients():\n        \"\"\"The report correctly counts the unique client IPs.\"\"\"\n        with open(Path(\"/app/report.json\")) as f:\n            data = json.load(f)\n            assert \"unique_ips\" in data, \"missing unique_ips field\"\n>           assert data[\"unique_ips\"] == 6,f\"expected 3 IPs, got {data.get(\"unique_clients\", 0)}\"\nE           AssertionError: expected 3 IPs, got 0\nE           assert 3 == 6\n\n/tests/test_outputs.py:33: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_top_path",
+                "status": "passed",
+                "duration": 0.0006027839999944717,
+                "start": 1784669715.1298795,
+                "stop": 1784669715.1312945,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

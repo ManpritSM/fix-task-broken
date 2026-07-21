@@ -1,0 +1,23 @@
+Skipping image OS validation for hb__79379fede0a3dff0fdb1dfdaae83b69a: docker inspect returned 1
+Collecting main service artifacts
+Failed to download artifact '/app/report.json' from service 'main' (best-effort)
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\artifact_handler.py", line 330, in _download_artifact
+    await source_env.service_download_file(
+    ...<3 lines>...
+    )
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 1052, in service_download_file
+    await self.download_file(source_path, target_path)
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 1037, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker_unix.py", line 185, in download_file
+    await self._env._run_docker_compose_command(
+    ...<2 lines>...
+    )
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 656, in _run_docker_compose_command
+    raise RuntimeError(
+    ...<5 lines>...
+    )
+RuntimeError: Docker compose command failed for environment log-report. Command: docker compose --project-name log-report__gfxpxdw__env --project-directory C:\Users\Administrator\Downloads\fix-task-broken\log-report\environment -f C:\Users\Administrator\AppData\Local\Temp\tmpevoawppw\log-report__GfxpxDW__env-docker-compose-resources.json -f C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker-compose-build.yaml -f C:\Users\Administrator\AppData\Local\Temp\tmphnf66pq8\docker-compose-environment.json -f C:\Users\Administrator\AppData\Local\Temp\tmp5apl177s\docker-compose-mounts.json cp main:/app/report.json jobs\2026-07-22__01-36-29\log-report__GfxpxDW\artifacts\app\report.json. Return code: 1. Stdout:  log-report__gfxpxdw__env-main-1 Copying log-report__gfxpxdw__env-main-1:/app/report.json to jobs\2026-07-22__01-36-29\log-report__GfxpxDW\artifacts\app\report.json
+Error response from daemon: Could not find the file /app/report.json in container 6b851363c0f43c3cf794ef3a54e119cf29abba69cb8e50ba888a8b42a2714f4e
+. Stderr: None. 

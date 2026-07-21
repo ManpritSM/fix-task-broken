@@ -1,0 +1,14 @@
+{
+    "job_name": "2026-07-22__01-03-02",
+    "agents": [
+        {
+            "name": "claude-code",
+            "model_name": "claude-sonnet-4-6"
+        }
+    ],
+    "tasks": [
+        {
+            "path": "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\harbor-check-r3f_fyim\\check-log-report"
+        }
+    ]
+}

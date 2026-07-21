@@ -1,0 +1,92 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 0,
+            "failed": 6,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1784669928.7064934,
+            "stop": 1784669928.7860823
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_report_exists",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0008950680000339162,
+                "start": 1784669928.7337523,
+                "stop": 1784669928.7478065,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_report_exists():\n        \"\"\"The agent produced a report file.\"\"\"\n>       assert Path(\"/app/report.json\").exists(), \"no report.json found\"\nE       AssertionError: no report.json found\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/app/report.json').exists\nE        +      where PosixPath('/app/report.json') = Path('/app/report.json')\n\n/tests/test_outputs.py:6: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_report_nonempty",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0008125620000782874,
+                "start": 1784669928.748196,
+                "stop": 1784669928.7676299,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_report_nonempty():\n        \"\"\"The report file is not empty.\"\"\"\n>       assert Path(\"/app/report.json\").stat().st_size > 0, \"report.json is empty\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:11: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = PosixPath('/app/report.json')\n\n    def stat(self, *, follow_symlinks=True):\n        \"\"\"\n        Return the result of the stat() system call on this path, like\n        os.stat() does.\n        \"\"\"\n>       return os.stat(self, follow_symlinks=follow_symlinks)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'\n\n/usr/local/lib/python3.13/pathlib/_local.py:515: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_valid_json_report",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0007425580000131049,
+                "start": 1784669928.767923,
+                "stop": 1784669928.771777,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_valid_json_report():\n        \"\"\"The report correctly validates the report format\"\"\"\n>       with open(Path(\"/app/report.json\")) as f:\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'\n\n/tests/test_outputs.py:16: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_total_requests",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0006031469999925321,
+                "start": 1784669928.7720695,
+                "stop": 1784669928.7753203,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_total_requests():\n        \"\"\"The report correctly counts the number of requests.\"\"\"\n>       with open(Path(\"/app/report.json\")) as f:\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'\n\n/tests/test_outputs.py:23: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_unique_clients",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0007958609999718647,
+                "start": 1784669928.7757704,
+                "stop": 1784669928.7804236,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_unique_clients():\n        \"\"\"The report correctly counts the unique client IPs.\"\"\"\n>       with open(Path(\"/app/report.json\")) as f:\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'\n\n/tests/test_outputs.py:30: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            },
+            {
+                "name": "test_outputs.py::test_top_path",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0009673740000266662,
+                "start": 1784669928.780824,
+                "stop": 1784669928.785069,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_top_path():\n        \"\"\"The report correctly identifies the most popular page\"\"\"\n>       with open(Path(\"/app/report.json\")) as f:\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/app/report.json'\n\n/tests/test_outputs.py:37: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            }
+        ]
+    }
+}

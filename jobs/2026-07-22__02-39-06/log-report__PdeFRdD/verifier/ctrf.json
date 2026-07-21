@@ -1,0 +1,74 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 2,
+            "failed": 3,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1784668188.9138215,
+            "stop": 1784668189.0909295
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_report_exists",
+                "status": "passed",
+                "duration": 0.0017999690000038981,
+                "start": 1784668189.0318274,
+                "stop": 1784668189.0360138,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_report_nonempty",
+                "status": "passed",
+                "duration": 0.001451656000000412,
+                "start": 1784668189.0368533,
+                "stop": 1784668189.0407043,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_total_requests",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.001771069000000125,
+                "start": 1784668189.04133,
+                "stop": 1784668189.0720043,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_total_requests():\n        \"\"\"The report correctly counts the number of requests.\"\"\"\n        with open(Path(\"/app/report.json\")) as f:\n            data = json.load(f)\n            assert \"total_requests\" in data, \"missing total_requests field\"\n>           assert \"total_requests\" == 6,f\"expected 6 requests, got {data.get(\"total_requests\", 0)}\"\nE           AssertionError: expected 6 requests, got 6\nE           assert 'total_requests' == 6\n\n/tests/test_outputs.py:19: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_unique_clients",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.001780066999998553,
+                "start": 1784668189.072512,
+                "stop": 1784668189.0803986,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_unique_clients():\n        \"\"\"The report correctly counts the unique client IPs.\"\"\"\n        with open(Path(\"/app/report.json\")) as f:\n            data = json.load(f)\n>           assert \"unique_clients\" in data, \"missing unique_clients field\"\nE           AssertionError: missing unique_clients field\nE           assert 'unique_clients' in {'top_path': '/index.html', 'total_requests': 6, 'unique_ips': 3}\n\n/tests/test_outputs.py:25: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_top_path",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0020239779999968732,
+                "start": 1784668189.0811038,
+                "stop": 1784668189.089078,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_top_path():\n        \"\"\"The report correctly identifies the most popular page\"\"\"\n        with open(Path(\"/app/report.json\")) as f:\n            data = json.load(f)\n            assert \"top_path\" in data, \"missing top_path field\"\n>           assert \"top_path\" == \"/index.html\" or \"top_path\" == \"index.html\" ,f\"expected top path /index.html, got {data.get('top_path')}\"\nE           AssertionError: expected top path /index.html, got /index.html\nE           assert ('top_path' == '/index.html'\nE             \nE             - /index.html\nE             + top_path or 'top_path' == 'index.html'\nE             \nE             - index.html\nE             + top_path)\n\n/tests/test_outputs.py:33: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

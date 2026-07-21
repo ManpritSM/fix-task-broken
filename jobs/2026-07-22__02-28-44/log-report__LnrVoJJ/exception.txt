@@ -1,0 +1,77 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\trial.py", line 354, in run
+    await self._run()
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\single_step.py", line 45, in _run
+    await self._collect_artifacts(
+        stop_main_before_sidecars=(mode == VerifierEnvironmentMode.SEPARATE)
+    )
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\single_step.py", line 69, in _collect_artifacts
+    await self._collect_artifacts_phased(
+    ...<2 lines>...
+    )
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\trial.py", line 995, in _collect_artifacts_phased
+    await self._artifact_handler.download_artifacts(
+    ...<5 lines>...
+    )
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\artifact_handler.py", line 179, in download_artifacts
+    await self._download_artifact(
+    ...<4 lines>...
+    )
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\trial\artifact_handler.py", line 305, in _download_artifact
+    is_dir = await source_env.service_is_dir(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        source, service=artifact.service, user="root"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\base.py", line 1289, in service_is_dir
+    return await self.is_dir(path, user=user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\base.py", line 1156, in is_dir
+    result = await self.exec(
+             ^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 1096, in exec
+    return await self._compose_exec(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 1173, in _compose_exec
+    return await self._run_docker_compose_command(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 649, in _run_docker_compose_command
+    result = await self._collect_buffered_output(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Roaming\uv\tools\harbor\Lib\site-packages\harbor\environments\docker\docker.py", line 675, in _collect_buffered_output
+    stdout_bytes, stderr_bytes = await asyncio.wait_for(
+                                 ^^^^^^^^^^^^^^^^^^^^^^^
+        process.communicate(input=stdin_data), timeout=timeout_sec
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\subprocess.py", line 201, in communicate
+    stdin, stdout, stderr = await tasks.gather(stdin, stdout, stderr)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\subprocess.py", line 181, in _read_stream
+    output = await stream.read()
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\streams.py", line 723, in read
+    block = await self.read(self._limit)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\streams.py", line 730, in read
+    await self._wait_for_data('read')
+  File "C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError

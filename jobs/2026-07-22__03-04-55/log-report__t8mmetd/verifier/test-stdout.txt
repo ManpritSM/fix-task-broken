@@ -1,0 +1,30 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 6 items
+
+../tests/test_outputs.py ....F.                                          [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_unique_clients ______________________________
+
+    def test_unique_clients():
+        """The report correctly counts the unique client IPs."""
+        with open(Path("/app/report.json")) as f:
+            data = json.load(f)
+            assert "unique_ips" in data, "missing unique_ips field"
+>           assert data["unique_ips"] == 6,f"expected 3 IPs, got {data.get("unique_clients", 0)}"
+E           AssertionError: expected 3 IPs, got 0
+E           assert 3 == 6
+
+/tests/test_outputs.py:33: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_report_exists
+PASSED ../tests/test_outputs.py::test_report_nonempty
+PASSED ../tests/test_outputs.py::test_valid_json_report
+PASSED ../tests/test_outputs.py::test_total_requests
+PASSED ../tests/test_outputs.py::test_top_path
+FAILED ../tests/test_outputs.py::test_unique_clients - AssertionError: expect...
+========================= 1 failed, 5 passed in 0.06s ==========================

@@ -1,0 +1,11 @@
+{
+    "task": {
+        "path": "log-report"
+    },
+    "trial_name": "log-report__EXisghp",
+    "trials_dir": "jobs\\2026-07-22__02-11-31",
+    "agent": {
+        "name": "nop"
+    },
+    "job_id": "08bec7c3-66f8-42da-8e3f-5dd532337fbc"
+}
